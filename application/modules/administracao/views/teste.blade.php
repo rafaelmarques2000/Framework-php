@@ -1,0 +1,1 @@
+<h1>View carregada de dentro de modules meu nome é {{$teste}}</h1>

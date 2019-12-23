@@ -1,0 +1,21 @@
+{
+    "name": "rpaixao/framework",
+    "description": "Framework de estudo",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Marques",
+            "email": "rafaelmarquespaixao@outlook.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "jenssegers/blade": "^1.2"
+    },
+     "autoload": {
+        "psr-4": {
+            "App\\": "application/"
+        }
+    }
+}
