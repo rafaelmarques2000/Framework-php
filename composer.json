@@ -11,7 +11,9 @@
     ],
     "minimum-stability": "alpha",
     "require": {
-        "jenssegers/blade": "^1.2"
+        "jenssegers/blade": "^1.2",
+        "illuminate/database": "5.8.0",
+        "illuminate/events": "5.8.0"
     },
      "autoload": {
         "psr-4": {

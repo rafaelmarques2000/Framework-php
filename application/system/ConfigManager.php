@@ -11,5 +11,9 @@ class ConfigManager{
          }
          return $object;
      }
+     public static function GetDatabaseConfig($driver){
+        $configDB = require("../application/config/database.php");
+        return $configDB[$driver];
+    }
 }
 

@@ -8,6 +8,8 @@ return [
 
     "cache_view" =>"../application/cache",
 
-    "view_modules" => "../application/modules/{name_module}/views"
+    "view_modules" => "../application/modules/{name_module}/views",
+
+    "default_connection" =>"pgsql"
 
 ];
