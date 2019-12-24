@@ -146,13 +146,29 @@ Illuminate/Database by Laravel 5.8.0
  - SQL Injection Protection (Recurso já implementado no Illuminate/Database 5.8.0)
  
  ## Recursos Em desenvolvimento
+ - Interface Web para criação de controllers
  - Middleware
  - CSRF Protection
- - Interface Web para criação de controllers
  - Otimização do sistema rota para contemplar parametros opcionais
+ - Helpers para apoio de desenvolvimento
+ - Sistema de Bibliotecas Personalizadas
  ***
  
+ ## Executando o Projeto
+  - O projeto deve ser clonado deste repositorio para dentro de um servidor com nginx ou apache com php 7.3 
+ - O ambiente em questão deve conter os seguintes gerenciados de dependencias e recursos:
+    - node 12.x ou superior
+    - composer 1.7 ou superior
+    - Yarn ou npm na ultima versão
+ - executade o comando **composer install** para instalar as dependencias do projeto
+ - para o frontend execute o comando **npm install** ou **yarn install**(opcional)
+ - No navegador acesse a pasta public
+ ***
+
+## Documentações do projeto
  
+- **TemplateEngine Blade:** https://laravel.com/docs/5.8/blade 
+- **Query Builder:** https://laravel.com/docs/5.8/queries
  
  
  
