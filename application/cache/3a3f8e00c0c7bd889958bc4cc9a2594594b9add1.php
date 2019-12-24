@@ -1,0 +1,1 @@
+<h1>View carregada de dentro de modules meu nome é <?php echo e($teste); ?></h1><?php /**PATH /var/www/html/Framework-php/application/modules/administracao/views/teste.blade.php ENDPATH**/ ?>

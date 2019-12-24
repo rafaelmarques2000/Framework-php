@@ -24,7 +24,7 @@ class ProdutosController extends Controller{
     }
 
     public function Teste($params){
-        $this->View("teste","administracao",['teste'=>"Rafael"]);
+        $this->View("teste",null,['teste'=>"Rafael"]);
     }
 
 }

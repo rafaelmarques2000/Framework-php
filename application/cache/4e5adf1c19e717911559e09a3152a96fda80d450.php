@@ -8,6 +8,6 @@
     <script src="/Framework-php/public/js/app.min.js"></script>
 </head>
 <body>
-  <div id="app"> @yield('content')</div>
+  <div id="app"> <?php echo $__env->yieldContent('content'); ?></div>
 </body>
-</html>
+</html><?php /**PATH /var/www/html/Framework-php/application/core/views/template.blade.php ENDPATH**/ ?>
