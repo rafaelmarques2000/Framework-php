@@ -147,6 +147,7 @@ Illuminate/Database by Laravel 5.8.0
  
  ## Recursos Em desenvolvimento
  - Interface Web para criação de controllers
+ - Gerenciador de Sessão
  - Middleware
  - CSRF Protection
  - Otimização do sistema rota para contemplar parametros opcionais
