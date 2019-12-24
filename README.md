@@ -125,9 +125,10 @@ Blade template by Laravel 1.6.1
  ***
  
  ## Recursos Já desenvolvidos
-  - Estrutura basica 
+ - Estrutura basica 
  - RouteManager 
  - TemplateEngine
+ - Estrutura para utilização de Vuejs + Webpack
  
  ## Recursos Em desenvolvimento
  - QueryBuilder
@@ -135,7 +136,6 @@ Blade template by Laravel 1.6.1
  - CSRF Protection
  - SQL Injection Protection
  - Interface Web para criação de controllers
- - Estrutura para utilização de Vuejs + Webpack
  - Otimização do sistema rota para contemplar parametros opcionais
  
  ***
