@@ -1,6 +1,5 @@
 # Framework-php
-Projeto que visa a criação de um framework em php, qual utilizarei em meus projetos pessoais e para estudo de engenharia de software.
-O projeto pode ser utilizado como base para uma noção de como deve ser estruturado um framework em php, mas sempre deve-se levar em consideração utilizar Frameworks de ampla utilização como Laravel, Synfony entre outros afim de de maior agilidade no processo mas se necessario 
+O projeto pode ser utilizado como base para uma noção de como deve ser estruturado um framework em php, mas sempre deve-se levar em consideração utilizar Frameworks de ampla utilização como Laravel, Synfony entre outros afim de de maior agilidade no processo mas se necessario o desenvolvimento de estrutura personalizada, este projeto pode ser utilizado ou servir como base de inspiração.
 
 ***
 
