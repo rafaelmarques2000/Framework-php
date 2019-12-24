@@ -6,7 +6,7 @@ O projeto pode ser utilizado como base para uma noção de como deve ser estrutu
 
 #### Estrutura Projeto
 - Application - Contem toda aplicação 
-- Frontend - Pasta para compilação de frameworks frontend (React ou Vue)
+- Resource - Pasta para compilação de frameworks frontend (React ou Vue)
 - Public - Pasta publica onde o browser tera acesso a aplicação
 
 ***
@@ -27,6 +27,17 @@ Todo modulo do sistema seja o Core(principal) ou criados pelo usuario na pasta m
  - Models - Contem todos os models do sistema
  - Routes - Contem o arquivo de rotas do modulo
  - View - Contem todas as views do modulo
+ 
+ ***
+ #### Estrutura da Pasta Resource
+ A pasta resource e responsavel por conter os componentes de frontend que serão compilados via Webpack para serem utilizados  pelo projeto.
+**A estrutura e formada por:**
+  - components - Contem todos os componentes em geral que não sejam referente a uma View
+  - routes - Contem arquivos de configuração refente a rotas SPA do vue-router(não implementado por padrão)
+  - store - Contem arquivos relacionados a configuração do vuex(Gerenciador de estados do vue)
+  - View - Contem componentes vue referente as telas do sistema.
+  - App.js Ponto de entrada do Vue(Onde todos os arquivos devem ser importados)
+  
  
  ***
  
@@ -98,12 +109,12 @@ Todo modulo do sistema seja o Core(principal) ou criados pelo usuario na pasta m
  #### Arquivos da pasta system
  Este pasta contem todas as classes que fazem o sistema funcionar os arquivos são:
  
- - Boot.php - Singleton responsavel por iniciar o processamento de requisições.
- - ConfigManager - Class Responsavel por Gerenciar os arquivos de configuração da pasta config
- - Controller - Controller padrão do sistema contem todas as funcionalidades necessaria para o controller do sistema
- - Model Class Model padrão do sistema contem todas as rotinas de acesso a banco de dados necessarias ao model
- - RouterManager - Class Para processamento das requisições enviadas pelo browser e direcionando para o controller correto
- - TemplateEngine - Class Para processamento de template do sistema.
+ - **Boot.php** - Singleton responsavel por iniciar o processamento de requisições.
+ - **ConfigManager** - Class Responsavel por Gerenciar os arquivos de configuração da pasta config
+ - **Controller** - Controller padrão do sistema contem todas as funcionalidades necessaria para o controller do sistema
+ - **db** Class Gerenciadora do Illuminate/Database para acesso ao banco de dados
+ - **RouterManager** - Class Para processamento das requisições enviadas pelo browser e direcionando para o controller correto
+ - **TemplateEngine** - Class Para processamento de template do sistema.
  
  ***
  
@@ -121,23 +132,24 @@ Todo modulo do sistema seja o Core(principal) ou criados pelo usuario na pasta m
  
 **PHP Template Engine:**
 Blade template by Laravel 1.6.1
+
+**Query Builder**
+Illuminate/Database by Laravel 5.8.0
  
  ***
- 
  ## Recursos Já desenvolvidos
  - Estrutura basica 
  - RouteManager 
- - TemplateEngine
+ - TemplateEngine (Utilizando Blade 1.6, sistema de templates do laravel)
  - Estrutura para utilização de Vuejs + Webpack
+ - QueryBuilder(Utilizando Illuminate/Database 5.8.0 componente usado no laravel)
+ - SQL Injection Protection (Recurso já implementado no Illuminate/Database 5.8.0)
  
  ## Recursos Em desenvolvimento
- - QueryBuilder
  - Middleware
  - CSRF Protection
- - SQL Injection Protection
  - Interface Web para criação de controllers
  - Otimização do sistema rota para contemplar parametros opcionais
- 
  ***
  
  
