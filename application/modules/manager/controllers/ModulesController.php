@@ -16,7 +16,7 @@ class ModulesController extends Controller{
           $dirList = dir("../application/modules");
           $arrayDirList = [];
           while (false !== ($entry = $dirList->read())) {
-             if($entry == '.' || $entry == '..')
+             if($entry == '.' || $entry == '..' || $entry == "manager")
                 continue;
              else
                 $arrayDirList[] = $entry;
@@ -67,6 +67,10 @@ class ModulesController extends Controller{
                 fclose($routeFile);
 
                 /** Da permissão ao arquivo de routes */
+                chmod("../application/modules/".$data['nome_modulo']."/controllers",0777);
+                chmod("../application/modules/".$data['nome_modulo']."/models",0777);
+                chmod("../application/modules/".$data['nome_modulo']."/routes",0777);
+                chmod("../application/modules/".$data['nome_modulo']."/views",0777);
                 chmod("../application/modules/".$data['nome_modulo']."/routes/routes.php",0777);
 
                 $this->View("msg","manager",[
@@ -86,9 +90,20 @@ class ModulesController extends Controller{
         }
       }
 
+      private function RmdirRecursive($dir) {
+        $it = new \RecursiveDirectoryIterator($dir, \FilesystemIterator::SKIP_DOTS);
+        $it = new \RecursiveIteratorIterator($it, \RecursiveIteratorIterator::CHILD_FIRST);
+        foreach($it as $file) {
+            if ($file->isDir()) rmdir($file->getPathname());
+            else unlink($file->getPathname());
+        }
+        rmdir($dir);
+     }
+
       public function DeleteModule(){
           try{
-              rmdir("../application/modules/".$_GET['module']);
+              $this->RmdirRecursive("../application/modules/".$_GET['module']);
+
               $this->View("msg","manager",[
                 "info"=>"Modulo deletado com sucesso.",
                 "link"=>"/Framework-php/public/manager/modules"

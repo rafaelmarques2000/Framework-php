@@ -47,4 +47,4 @@
      </div>
 
 </body>
-</html>
+</html><?php /**PATH /var/www/html/Framework-php/application/core/views/bemvindo.blade.php ENDPATH**/ ?>

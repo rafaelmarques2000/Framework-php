@@ -7,6 +7,10 @@ class RouterManager{
      * Processa a requisição para efetuar o direcionamento a um controller
      */
     private static $routeMatch = false;
+    
+    /**
+     * Metodo chamado pela classe de boot para efetuar o processamento da URI solicitada
+     */
     public static function ProcessRouter(){
         $path = "";
         //se for vazio sempre ira redirecionar para rota default
@@ -25,7 +29,12 @@ class RouterManager{
             }
         }
     }
-
+    
+    /**
+     * Metodo Chamado pelo processeRouter afim de efeutar o processamento da rota internament e instanciar o controller correto com suas devidas dependencias 
+     * @param $isModule Verifica se a chamada efetuada contem o nome de um modulo 
+     * @return void 
+     */
     private static function ProcessRouterRequest($isModule){
          //no modulo padrao
                 //verifica se a rota existe no array
@@ -153,6 +162,7 @@ class RouterManager{
            $reflectionClass = new \ReflectionClass($ns);
            $instance = $reflectionClass->newInstance();
            $action = $config['action'];
+           
            if(!method_exists($instance,$action)){
                throw new \Exception("Action não encontrada no controller.");
            }else{

@@ -10,6 +10,8 @@ return [
 
     "view_modules" => "../application/modules/{name_module}/views",
 
-    "default_connection" =>"pgsql"
+    "default_connection" =>"pgsql",
+    
+    "disabled_manager" => false
 
-];
+];  

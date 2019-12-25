@@ -3,7 +3,12 @@
 namespace App\system;
 
 class ConfigManager{
-     public static function GetApplicationConfig(){
+     
+    /**
+     * Este metodo tem como objetivo recuperar as configurações do arquivo application.php
+     * @return object com as configurações da aplicacão
+     */
+    public static function GetApplicationConfig(){
          $object = new \stdClass();
          $configApp = require("../application/config/application.php");
          foreach($configApp as $key=>$value){
@@ -11,6 +16,13 @@ class ConfigManager{
          }
          return $object;
      }
+
+     /**
+      * Este metodo tem como objetivo Obter as configurações de banco de dados que será passada ao Facade Illuminata/Database 
+      * @param string $driver deve ser passado o nome do driver a ser utilizado (mysql,pgsql,sqlvr) 
+      * @return array Retorna um array com as configurações de banco criadas n
+      */
+
      public static function GetDatabaseConfig($driver){
         $configDB = require("../application/config/database.php");
         return $configDB[$driver];

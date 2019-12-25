@@ -24,8 +24,8 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/Framework-php/public/manager">Inicio <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="/Framework-php/public/manager/modules">Modulos</a>
-      <a class="nav-item nav-link" href="#">Controllers</a>
-      <a class="nav-item nav-link" href="#">Models</a>
+      <a class="nav-item nav-link" href="/Framework-php/public/manager/controllers">Controllers</a>
+      <a class="nav-item nav-link" href="/Framework-php/public/manager/models">Models</a>
     </div>
   </div>
 </nav>
