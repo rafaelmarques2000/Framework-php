@@ -27,5 +27,15 @@ class ConfigManager{
         $configDB = require("../application/config/database.php");
         return $configDB[$driver];
     }
+
+    public static function CheckDisabledModule($name){
+        $configModules = require("../application/config/modules.php");
+        $disabledModules = $configModules['disabled'];
+        if(in_array($name,$disabledModules))
+            return true;
+        else
+            return false;
+        
+    }
 }
 

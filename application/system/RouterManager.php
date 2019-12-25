@@ -2,6 +2,8 @@
 
 namespace App\system;
 
+use App\system\ConfigManager as Config;
+
 class RouterManager{
     /**
      * Processa a requisição para efetuar o direcionamento a um controller
@@ -24,11 +26,29 @@ class RouterManager{
             if(!$isModule){
                self::ProcessRouterRequest(false);
             }else{
-                //se for em um modulo
-                self::ProcessRouterRequest(true);
+                if(self::CheckAcessModule($_GET)){
+                    //se for verdadeiro o modulo esta desabilitado
+                    throw new \Exception("Este modulo não pode ser acessado no momento.");
+                }else{
+                    //se for em um modulo
+                    self::ProcessRouterRequest(true);
+                }
             }
         }
     }
+
+    /** 
+     * Verifica se o modulo a ser acessado está habilitado(pode ser acessado)
+    */
+
+    private static function CheckAcessModule($path){
+        $module = explode("/",$path['uri'])[0];      
+        if(Config::CheckDisabledModule($module))
+            return true;
+        else    
+            return false;
+    }
+
     
     /**
      * Metodo Chamado pelo processeRouter afim de efeutar o processamento da rota internament e instanciar o controller correto com suas devidas dependencias 

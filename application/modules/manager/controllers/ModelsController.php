@@ -4,12 +4,12 @@ namespace App\modules\manager\controllers;
 
 use App\system\Controller;
 
-class ManagerControllers extends Controller{
+class ModelsController extends Controller{
 
       public function index(){
          $dirList = $this->GetModules();
-         $controllersList = $this->ListControllers();
-         $this->View("controllers",'manager',["directorys"=>$dirList,"controllers"=>$controllersList]);
+         $modelsList = $this->ListModels();
+         $this->View("models",'manager',["directorys"=>$dirList,"models"=>$modelsList]);
       }
 
 
@@ -26,7 +26,7 @@ class ManagerControllers extends Controller{
          return $arrayDirList;
       }
 
-      private function ListControllers(){
+      private function ListModels(){
         $dirList = dir("../application/modules");
         $arrayControllers = [];
         while (false !== ($entry = $dirList->read())) {
@@ -34,97 +34,94 @@ class ManagerControllers extends Controller{
               continue;
            }else{
               $module = $entry;
-              $ControllersDir = dir("../application/modules/".$module."/controllers");
-              while(false !==($controller = $ControllersDir->read())){
-                if($controller == '.' || $controller == '..'){
+              $ModelsDir = dir("../application/modules/".$module."/models");
+              while(false !==($model = $ModelsDir->read())){
+                if($model == '.' || $model == '..'){
                     continue;
                 }else{
                     $object = new \stdClass();
                     $object->module = $module;
-                    $object->controller = explode(".",$controller)[0];
+                    $object->model = explode(".",$model)[0];
                     $arrayControllers[] = $object;
                 }
               }
-              $ControllersDir->close();
+              $ModelsDir->close();
            }
         }
        $dirList->close();
        return $arrayControllers;
       }
 
-      public function CreateController(){
+      public function CreateModel(){
           $data = $_POST;
-          $dir = "../application/modules/".$data['module_list']."/controllers/".$data['name_controller']."Controller.php";
+          $dir = "../application/modules/".$data['module_list']."/models/".$data['name_model']."Model.php";
          try{
 
           if(file_exists($dir)){
 
             $this->View("msg","manager",[
-                "info"=>"O controller já foi criado.",
-                "link"=>"/Framework-php/public/manager/controllers"
+                "info"=>"O model já foi criado.",
+                "link"=>"/Framework-php/public/manager/models"
             ]);
-
 
           }else{
 
-            $controllerFile = fopen($dir,'w+');
+            $ModelFile = fopen($dir,'w+');
 
             $template = "<?php
     {namespace};
 
-    use App\system\Controller;
+    use App\system\db as DB;
 
-    class {controller} extends Controller{
-        public function index(){
+    class {model} {
+        
 
-        }
     }
                      ";
         $tplRender = strtr($template,
         array(
-            "{namespace}"=>"namespace App\\modules\\".$data['module_list']."\\controllers",
-            "{controller}" =>$data['name_controller']."Controller"
+            "{namespace}"=>"namespace App\\modules\\".$data['module_list']."\\models",
+            "{model}" =>$data['name_model']."Model"
         ));
 
 
 
-        fwrite($controllerFile,$tplRender);
+        fwrite($ModelFile,$tplRender);
 
-        fclose($controllerFile);
-        
+        fclose($ModelFile);
+
         chmod($dir,0777);
 
         $this->View("msg","manager",[
-            "info"=>"Controller criado com sucesso.",
-            "link"=>"/Framework-php/public/manager/controllers"
+            "info"=>"Model criado com sucesso.",
+            "link"=>"/Framework-php/public/manager/models"
         ]);
 
       }
        
-     
     }catch(\Exception $e){
-            $this->View("msg","manager",[
-                "info"=>"Falha ao cria controller, tente novamente.",
-                "link"=>"/Framework-php/public/manager/controllers"
-            ]);
-        }
+        $this->View("msg","manager",[
+            "info"=>"Falha ao cria model, tente novamente.",
+            "link"=>"/Framework-php/public/manager/models"
+        ]);
+     }
     }
 
-    public function DeleteController(){
+    public function DeleteModel(){
       try{
        $data =  $_GET;
        
-       unlink("../application/modules/".$data['module']."/controllers/".$data['controller'].".php");
+       unlink("../application/modules/".$data['module']."/models/".$data['model'].".php");
 
        $this->View("msg","manager",[
-        "info"=>"Controller Deletado com sucesso.",
-        "link"=>"/Framework-php/public/manager/controllers"
+        "info"=>"Model Deletado com sucesso.",
+        "link"=>"/Framework-php/public/manager/models"
       ]);
 
       }catch(\Exception $e){
         $this->View("msg","manager",[
-          "info"=>"Falha ao deletar controller, tente novamente.",
-          "link"=>"/Framework-php/public/manager/controllers"
+          "info"=>"Falha ao deletar model, tente novamente.",
+          "link"=>"/Framework-php/public/manager/models."
         ]);
       }
     }
@@ -153,7 +150,7 @@ class ManagerControllers extends Controller{
           }catch(\Exception $e){
             $this->View("msg","manager",[
               "info"=>"Modulo não encontrado.",
-              "link"=>"/Framework-php/public/manager/controllers"
+              "link"=>"/Framework-php/public/manager/models"
             ]);
           }
           

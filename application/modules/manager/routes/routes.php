@@ -49,4 +49,22 @@ return [
         "action" =>"FilterListControllers",
         "request_type"=>"GET"
     ),
+    "manager/models"=>array(
+        "module"=>"manager",
+        "controller"=>"ModelsController",
+        "action" =>"index",
+        "request_type"=>"GET"
+    ),
+    "manager/models/create"=>array(
+        "module"=>"manager",
+        "controller"=>"ModelsController",
+        "action" =>"CreateModel",
+        "request_type"=>"POST"
+    ),
+    "manager/models/delete"=>array(
+        "module"=>"manager",
+        "controller"=>"ModelsController",
+        "action" =>"DeleteModel",
+        "request_type"=>"GET"
+    ),
 ];
