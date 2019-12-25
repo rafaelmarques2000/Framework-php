@@ -143,9 +143,9 @@ Illuminate/Database by Laravel 5.8.0
  - Estrutura para utilização de Vuejs + Webpack
  - QueryBuilder(Utilizando Illuminate/Database 5.8.0 componente usado no laravel)
  - SQL Injection Protection (Recurso já implementado no Illuminate/Database 5.8.0)
+ - Interface Web para criação de controllers
  
  ## Recursos Em desenvolvimento
- - Interface Web para criação de controllers
  - Gerenciador de Sessão
  - Middleware
  - CSRF Protection
