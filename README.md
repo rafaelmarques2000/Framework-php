@@ -163,6 +163,10 @@ Illuminate/Database by Laravel 5.8.0
  - executade o comando **composer install** para instalar as dependencias do projeto
  - para o frontend execute o comando **npm install** ou **yarn install**(opcional)
  - No navegador acesse a pasta public
+ 
+ ## Executando Frontend
+ - no prompt de comando execute o comando **npm run build** para o sistema começar a compilar os componentes do frontend
+ 
  ***
 
 ## Documentações do projeto
