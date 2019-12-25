@@ -40,7 +40,7 @@
      <div class="welcome-content">
          <h1>Bem vindo ao Framework - PHP </h1>
          <p>Desenvolvido para estudo de engenharia de software e servir como base para o entendimento de como se construir um framework.</p>
-         <a href="">Github - Documentação e detalhes do projeto</a>
+         <a target="__blank" href="https://github.com/rafaelmarques2000/Framework-php">Github - Documentação e detalhes do projeto</a>
          </div>
      </div>
 
