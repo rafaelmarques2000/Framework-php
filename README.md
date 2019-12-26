@@ -165,8 +165,6 @@ Illuminate/Database by Laravel 5.8.0
   Gerando apartir do manager o mesmo já irá gerar os arquivos no formato a ser utilizado na arquitetura do sistema.
 
 ***
-
-***
  ## Recursos Já desenvolvidos
  - Estrutura basica 
  - RouteManager 
