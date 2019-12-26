@@ -14,6 +14,7 @@ O projeto pode ser utilizado como base para uma noção de como deve ser estrutu
 
 - cache - Armazena toda a compilação do template engine
 - config - Contem todos os arquivos de configuração
+- middlewares - Contem todos os middlewares do sistema
 - core - modulo principal do sistema 
 - modules - Armazena novos modulos criados para a aplicação
 - system - Armazena todas as Classes de logica do sistema
@@ -51,19 +52,22 @@ Todo modulo do sistema seja o Core(principal) ou criados pelo usuario na pasta m
               "module"=>"core",
               "controller"=>"HomeController",
               "action" =>"index",
-              "request_type"=>"GET"
+              "request_type"=>"GET",
+              "middlewares"=>[]
           ),
           "produtos"=>array(
               "module"=>"core",
               "controller"=>"ProdutosController",
               "action"=>"home",
-              "request_type"=>"GET"
+              "request_type"=>"GET",
+              "middlewares"=>[]
           ),
           "teste"=>array(
               "module"=>"core",
               "controller"=>"ProdutosController",
               "action"=>"teste",
-              "request_type"=>"GET"
+              "request_type"=>"GET",
+              "middlewares"=>[]
           ),
         ] 
  ```
@@ -77,7 +81,8 @@ Todo modulo do sistema seja o Core(principal) ou criados pelo usuario na pasta m
                "module"=>"Nome do modulo",
                "controller"=>"Nome do controller",
                "action"=>"Nome da action",
-               "request_type"=>"Tipo de requisição(POST,GET,PUT,DELETE,PATCH)"
+               "request_type"=>"Tipo de requisição(POST,GET,PUT,DELETE,PATCH)",
+               "middlewares"=>["Nome_da_classe","Nome_da_class"] Obs: Caso nao va usar middlewares na rota deixa vazio o    array 
             )
        ]
    
@@ -144,10 +149,10 @@ Illuminate/Database by Laravel 5.8.0
  - QueryBuilder(Utilizando Illuminate/Database 5.8.0 componente usado no laravel)
  - SQL Injection Protection (Recurso já implementado no Illuminate/Database 5.8.0)
  - Interface Web para criação de controllers
+ - Middleware(Utilizando a biblioteca onion adaptada ao projeto)
  
  ## Recursos Em desenvolvimento
  - Gerenciador de Sessão
- - Middleware
  - CSRF Protection
  - Otimização do sistema rota para contemplar parametros opcionais
  - Helpers para apoio de desenvolvimento
@@ -166,8 +171,18 @@ Illuminate/Database by Laravel 5.8.0
  
  ## Executando Frontend
  - no prompt de comando execute o comando **npm run build** para o sistema começar a compilar os componentes do frontend
- 
  ***
+ 
+ ## Framework PHP Manager
+ o framework possui um modulo embarcado para construção das estruturas basicas do sistema as estruturas que pode ser construidas pelo Manager são:
+ - Modulos
+ - Controllers
+ - Models
+ - Middlewares
+ 
+  Gerando apartir do manager o mesmo já irá gerar os arquivos no formato a ser utilizado na arquitetura do sistema.
+
+***
 
 ## Documentações do projeto
  
