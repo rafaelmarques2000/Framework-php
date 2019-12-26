@@ -140,25 +140,7 @@ Blade template by Laravel 1.6.1
 **Query Builder**
 Illuminate/Database by Laravel 5.8.0
  
- ***
- ## Recursos Já desenvolvidos
- - Estrutura basica 
- - RouteManager 
- - TemplateEngine (Utilizando Blade 1.6, sistema de templates do laravel)
- - Estrutura para utilização de Vuejs + Webpack
- - QueryBuilder(Utilizando Illuminate/Database 5.8.0 componente usado no laravel)
- - SQL Injection Protection (Recurso já implementado no Illuminate/Database 5.8.0)
- - Interface Web para criação de controllers
- - Middleware(Utilizando a biblioteca onion adaptada ao projeto)
- 
- ## Recursos Em desenvolvimento
- - Gerenciador de Sessão
- - CSRF Protection
- - Otimização do sistema rota para contemplar parametros opcionais
- - Helpers para apoio de desenvolvimento
- - Sistema de Bibliotecas Personalizadas
- ***
- 
+*** 
  ## Executando o Projeto
   - O projeto deve ser clonado deste repositorio para dentro de um servidor com nginx ou apache com php 7.3 
  - O ambiente em questão deve conter os seguintes gerenciados de dependencias e recursos:
@@ -183,6 +165,25 @@ Illuminate/Database by Laravel 5.8.0
   Gerando apartir do manager o mesmo já irá gerar os arquivos no formato a ser utilizado na arquitetura do sistema.
 
 ***
+
+***
+ ## Recursos Já desenvolvidos
+ - Estrutura basica 
+ - RouteManager 
+ - TemplateEngine (Utilizando Blade 1.6, sistema de templates do laravel)
+ - Estrutura para utilização de Vuejs + Webpack
+ - QueryBuilder(Utilizando Illuminate/Database 5.8.0 componente usado no laravel)
+ - SQL Injection Protection (Recurso já implementado no Illuminate/Database 5.8.0)
+ - Interface Web para criação de controllers
+ - Middleware(Utilizando a biblioteca onion adaptada ao projeto)
+ 
+ ## Recursos Em desenvolvimento
+ - Gerenciador de Sessão
+ - CSRF Protection
+ - Otimização do sistema rota para contemplar parametros opcionais
+ - Helpers para apoio de desenvolvimento
+ - Sistema de Bibliotecas Personalizadas
+ ***
 
 ## Documentações do projeto
  
