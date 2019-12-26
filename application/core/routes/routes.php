@@ -5,6 +5,7 @@ return [
         "module"=>"core",
         "controller"=>"IndexController",
         "action" =>"index",
-        "request_type"=>"GET"
+        "request_type"=>"GET",
+        "middlewares"=>[]
     )
 ];

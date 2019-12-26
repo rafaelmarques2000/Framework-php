@@ -26,6 +26,7 @@
       <a class="nav-item nav-link" href="/Framework-php/public/manager/modules">Modulos</a>
       <a class="nav-item nav-link" href="/Framework-php/public/manager/controllers">Controllers</a>
       <a class="nav-item nav-link" href="/Framework-php/public/manager/models">Models</a>
+      <a class="nav-item nav-link" href="/Framework-php/public/manager/middlewares">Middlewares</a>
     </div>
   </div>
 </nav>

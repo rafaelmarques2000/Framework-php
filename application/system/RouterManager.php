@@ -3,6 +3,8 @@
 namespace App\system;
 
 use App\system\ConfigManager as Config;
+use Optimus\Onion\Onion;
+use \Closure;
 
 class RouterManager{
     /**
@@ -26,7 +28,7 @@ class RouterManager{
             if(!$isModule){
                self::ProcessRouterRequest(false);
             }else{
-                if(self::CheckAcessModule($_GET)){
+                if(self::CheckAccessModule($_GET)){
                     //se for verdadeiro o modulo esta desabilitado
                     throw new \Exception("Este modulo não pode ser acessado no momento.");
                 }else{
@@ -41,7 +43,7 @@ class RouterManager{
      * Verifica se o modulo a ser acessado está habilitado(pode ser acessado)
     */
 
-    private static function CheckAcessModule($path){
+    private static function CheckAccessModule($path){
         $module = explode("/",$path['uri'])[0];      
         if(Config::CheckDisabledModule($module))
             return true;
@@ -83,7 +85,9 @@ class RouterManager{
                             $routeMatch = true;
                             /** Verifica se o tipo da requisição feita e igual ao do tipo setado na configuração */
                             if($_SERVER['REQUEST_METHOD'] == $config['request_type']){
+                                
                                 self::ExecController($config,[],$isModule);
+                                
                                 break;
                             }else{
                                 throw new \Exception("O metodo de acesso solicitado não e permitido.");
@@ -166,28 +170,61 @@ class RouterManager{
             return false;
         }
     }
+
     /** Executa o controller solicitado 
      * @param array $config parametro recebe os dados da rota
      * @param array $params parametro que recebe os dados coletados na url
      * @param boolean $isModule parametro que recebe se a execução aponta para um modulo ou para o padrão(Core)
     */
     private static function ExecController($config,$params,$isModule){
+           
+        /** Namespaces do controller encontrado */
            $ns = "";
            if(!$isModule){
               $ns = "App\\".$config['module']."\\".'controllers\\'.$config['controller'];
            }else{
               $ns = "App\\modules\\".$config['module']."\\".'controllers\\'.$config['controller'];
            }
+
+           /** Criação das instancias dos middlewares da rota */
+           $middlewareList = self::GenerateMiddlewaresLayers($config['middlewares']);
            
-           $reflectionClass = new \ReflectionClass($ns);
-           $instance = $reflectionClass->newInstance();
-           $action = $config['action'];
-           
-           if(!method_exists($instance,$action)){
-               throw new \Exception("Action não encontrada no controller.");
-           }else{
-               $instance->$action($params);
-           }
+           /** Implementação sistema de middleware */
+           $onion = new Onion();
+           $object = new \stdClass();
+           $onion->layer($middlewareList)->peel($object,function($object) use($ns,$config,$params){
+                    
+            
+            $reflectionClass = new \ReflectionClass($ns);
+            $instance = $reflectionClass->newInstance();
+            $action = $config['action'];
+            
+            if(!method_exists($instance,$action)){
+                throw new \Exception("Action não encontrada no controller.");
+            }else{
+                $instance->$action($params);
+            }
+
+            return $object;
+           });
+        /** Implementação sistema de middleware */
     }
+
+    /**
+     * Este metodo gera o array com as instancias do middlewares encontrados setado na rota encontrada
+     * @param $middlewareList lista com nomes dos middlewares
+     * @return Array Retorna um array com as instancias dos middlewares
+     */
+    private static function GenerateMiddlewaresLayers($middlewareList){
+        $layers = [];
+        foreach($middlewareList as $middleware){
+           $ns = "App\\middlewares\\".$middleware;
+           $RefClass = new \ReflectionClass($ns);
+           $layers[] = $RefClass->newInstance();
+        }
+        return $layers;
+    }
+
+    
  
 }

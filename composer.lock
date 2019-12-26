@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "271ffc38c039e5d2a22a86bd21840a8c",
+    "content-hash": "5084da74aadaa1936a2f1150ec77c9bc",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -546,6 +546,38 @@
                 "time"
             ],
             "time": "2019-12-16T16:30:25+00:00"
+        },
+        {
+            "name": "optimus/onion",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/esbenp/onion.git",
+                "reference": "b1e869bd58246459fec006559abbafa3d4762bf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/esbenp/onion/zipball/b1e869bd58246459fec006559abbafa3d4762bf1",
+                "reference": "b1e869bd58246459fec006559abbafa3d4762bf1",
+                "shasum": ""
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~4.7",
+                "satooshi/php-coveralls": "dev-master@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Optimus\\Onion\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2017-01-10T03:45:31+00:00"
         },
         {
             "name": "psr/container",

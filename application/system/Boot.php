@@ -24,8 +24,11 @@ class Boot {
     /** Inicia a instancia e atende as requisicoes do projeto */
     public static function start(){
        try{
+        
         Self::RegisterDatabaseManager();
+        
         RouterManager::ProcessRouter();
+        
        }catch(\Exception $e){
            echo $e->getMessage();
        }
