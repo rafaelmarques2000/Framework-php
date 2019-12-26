@@ -173,6 +173,7 @@ Illuminate/Database by Laravel 5.8.0
  
 - **TemplateEngine Blade:** https://laravel.com/docs/5.8/blade 
 - **Query Builder:** https://laravel.com/docs/5.8/queries
+- **Onion Before/After Middleware** https://github.com/esbenp/onion
  
  
  
