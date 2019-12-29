@@ -174,10 +174,9 @@ Illuminate/Database by Laravel 5.8.0
  - SQL Injection Protection (Recurso já implementado no Illuminate/Database 5.8.0)
  - Interface Web para criação de controllers
  - Middleware(Utilizando a biblioteca onion adaptada ao projeto)
+ - Gerenciador de Sessão(Basico sem suporte a flashdata por enquanto)
  
  ## Recursos Em desenvolvimento
- - Gerenciador de Sessão
- - CSRF Protection
  - Otimização do sistema rota para contemplar parametros opcionais
  - Helpers para apoio de desenvolvimento
  - Sistema de Bibliotecas Personalizadas
