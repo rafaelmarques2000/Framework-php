@@ -180,7 +180,6 @@ Illuminate/Database by Laravel 5.8.0
  
  ## Recursos Em desenvolvimento
  - Otimização do sistema rota para contemplar parametros opcionais
- - Helpers para apoio de desenvolvimento
 
  ***
 
