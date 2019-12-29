@@ -176,11 +176,12 @@ Illuminate/Database by Laravel 5.8.0
  - Interface Web para criação de controllers
  - Middleware(Utilizando a biblioteca onion adaptada ao projeto)
  - Gerenciador de Sessão(Basico sem suporte a flashdata por enquanto)
+ - Sistema de Bibliotecas Personalizadas
  
  ## Recursos Em desenvolvimento
  - Otimização do sistema rota para contemplar parametros opcionais
  - Helpers para apoio de desenvolvimento
- - Sistema de Bibliotecas Personalizadas
+
  ***
 
 ## Documentações do projeto
