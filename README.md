@@ -18,6 +18,7 @@ O projeto pode ser utilizado como base para uma noção de como deve ser estrutu
 - core - modulo principal do sistema 
 - modules - Armazena novos modulos criados para a aplicação
 - system - Armazena todas as Classes de logica do sistema
+   - helpers - Contem os arquivos para registro de fuções globais
 - libraries - Arquivos com classes que vão ser ligadas automaticamente a instancia do controller adicionando recursos ao mesmo podendo ser acessado usando $this->nomedaclasse->metodo();
 
 ***
@@ -121,6 +122,15 @@ Todo modulo do sistema seja o Core(principal) ou criados pelo usuario na pasta m
  - **RouterManager** - Class Para processamento das requisições enviadas pelo browser e direcionando para o controller correto
  - **TemplateEngine** - Class Para processamento de template do sistema.
  
+ #### Funções Globais
+ 
+ O sistema permite registrar funções globais que podem ser utilizada em todos os lugares do sistema Views, Controllers entre outros para criar suas proprias função é somente criar um arquivo dentro da pasta **Application/system/helpers** com suas fuções que elas estarão disponiveis em todos os escopos do sistema.
+
+#### Helpers Implementados
+- Assets - gera urls para vincular os assets nas paginas.
+- Url - gera urls para as rotas do sistema
+ 
+
  ***
  
  #### Tecnologias e bibliotecas
@@ -177,9 +187,10 @@ Illuminate/Database by Laravel 5.8.0
  - Middleware(Utilizando a biblioteca onion adaptada ao projeto)
  - Gerenciador de Sessão(Basico sem suporte a flashdata por enquanto)
  - Sistema de Bibliotecas Personalizadas
+ - Helpers Globais para os diversos fins
  
  ## Recursos Em desenvolvimento
- - Otimização do sistema rota para contemplar parametros opcionais
+ Todos desenvolvidos ate o momento.
 
  ***
 
