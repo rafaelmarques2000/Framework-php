@@ -1,0 +1,35 @@
+{
+  "name": "framework-php",
+  "version": "1.0.0",
+  "description": "Frontend Vuejs",
+  "main": "app.js",
+  "scripts": {
+     "build":"webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelmarques2000/Framework-php.git"
+  },
+  "author": "Rafael Marques Paixão",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafaelmarques2000/Framework-php/issues"
+  },
+  "homepage": "https://github.com/rafaelmarques2000/Framework-php#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.3.2",
+    "vue-loader": "^15.8.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  }
+}
