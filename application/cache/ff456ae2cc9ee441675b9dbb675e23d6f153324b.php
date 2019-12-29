@@ -36,7 +36,6 @@
     </style>
 </head>
 <body>
-     
      <div class="welcome-content">
          <h1>Bem vindo ao Framework - PHP </h1>
          <p>Desenvolvido para estudo de engenharia de software e servir como base para o entendimento de como se construir um framework.</p>

@@ -25,10 +25,14 @@ class Boot {
     /** Inicia a instancia e atende as requisicoes do projeto */
     public static function start(){
        try{
-        Session::InitSession();
-        Self::RegisterDatabaseManager();
-        RouterManager::ProcessRouter();
-        
+            /**Inicia a sessão */
+            Session::InitSession();
+            /**Registra as configurações de banco */
+            Self::RegisterDatabaseManager();
+            /** Registra as funções globais */
+            Self::RegisterGlobalsFunctions();
+            /** Efetua o processamento da rota */
+            RouterManager::ProcessRouter();
        }catch(\Exception $e){
            echo $e->getMessage();
        }
@@ -40,6 +44,18 @@ class Boot {
         $app = ConfigManager::GetApplicationConfig();
         $db->addConnection(ConfigManager::GetDatabaseConfig($app->default_connection));
         $db->setAsGlobal();
+    }
+     
+    /** Registra todos os arquivos da pasta helpers do namespace system */
+    private static function RegisterGlobalsFunctions(){
+        $helpers = dir("../application/system/helpers");
+        while(false !== ($helper = $helpers->read())){
+            if($helper == "." || $helper == ".."){
+                continue;
+            }else{
+               require_once "../application/system/helpers/".$helper;
+            }
+         }
     }
 
 }

@@ -22,11 +22,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/Framework-php/public/manager">Inicio <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/Framework-php/public/manager/modules">Modulos</a>
-      <a class="nav-item nav-link" href="/Framework-php/public/manager/controllers">Controllers</a>
-      <a class="nav-item nav-link" href="/Framework-php/public/manager/models">Models</a>
-      <a class="nav-item nav-link" href="/Framework-php/public/manager/middlewares">Middlewares</a>
+      <a class="nav-item nav-link active" href="<?php echo e(route_url('manager')); ?>">Inicio <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="<?php echo e(route_url('manager/modules')); ?>">Modulos</a>
+      <a class="nav-item nav-link" href="<?php echo e(route_url('manager/controllers')); ?>">Controllers</a>
+      <a class="nav-item nav-link" href="<?php echo e(route_url('manager/models')); ?>">Models</a>
+      <a class="nav-item nav-link" href="<?php echo e(route_url('manager/middlewares')); ?>">Middlewares</a>
     </div>
   </div>
 </nav>

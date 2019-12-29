@@ -2,7 +2,7 @@
 
 return [
     
-    "url_base"=>"http://localhost/framework/public",
+    "url_base"=>"http://localhost/Framework-php/public",
     
     "view_default"=>"../application/core/views",
 
