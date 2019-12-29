@@ -18,6 +18,7 @@ O projeto pode ser utilizado como base para uma noção de como deve ser estrutu
 - core - modulo principal do sistema 
 - modules - Armazena novos modulos criados para a aplicação
 - system - Armazena todas as Classes de logica do sistema
+- libraries - Arquivos com classes que vão ser ligadas automaticamente a instancia do controller adicionando recursos ao mesmo podendo ser acessado usando $this->nomedaclasse->metodo();
 
 ***
 
