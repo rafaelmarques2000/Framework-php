@@ -5,6 +5,7 @@ namespace App\system;
 use App\system\RouterManager;
 use App\system\ConfigManager;
 use App\system\db as DatabaseManager;
+use App\system\Session;
 
 /** Objeto principal do framework Singleton */
 class Boot {
@@ -24,9 +25,8 @@ class Boot {
     /** Inicia a instancia e atende as requisicoes do projeto */
     public static function start(){
        try{
-        
+        Session::InitSession();
         Self::RegisterDatabaseManager();
-        
         RouterManager::ProcessRouter();
         
        }catch(\Exception $e){

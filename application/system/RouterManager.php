@@ -81,7 +81,7 @@ class RouterManager{
                         * Se na definicao da rota nao precisar de parametro verificar se a url e igual
                         */
                         if($route === $_GET['uri']){
-                            unset($_GET['uri']);
+                            // unset($_GET['uri']);
                             $routeMatch = true;
                             /** Verifica se o tipo da requisição feita e igual ao do tipo setado na configuração */
                             if($_SERVER['REQUEST_METHOD'] == $config['request_type']){
@@ -125,7 +125,7 @@ class RouterManager{
                          
                         /** Compara se a url processada e igual a url do browser */
                         if($refRouterString === $_GET['uri']){
-                            unset($_GET['uri']);
+                            // unset($_GET['uri']);
                             $routeMatch = true;
                             /** Verifica se o tipo da requisição feita e igual ao do tipo setado na configuração */
                             if($_SERVER['REQUEST_METHOD'] == $config['request_type']){
@@ -189,6 +189,7 @@ class RouterManager{
            /** Criação das instancias dos middlewares da rota */
            $middlewareList = self::GenerateMiddlewaresLayers($config['middlewares']);
            
+     
            /** Implementação sistema de middleware */
            $onion = new Onion();
            $object = new \stdClass();
@@ -196,9 +197,11 @@ class RouterManager{
                     
             
             $reflectionClass = new \ReflectionClass($ns);
-            $instance = $reflectionClass->newInstance();
+            $instance = self::LoadLibraries($reflectionClass->newInstance());
             $action = $config['action'];
             
+  
+
             if(!method_exists($instance,$action)){
                 throw new \Exception("Action não encontrada no controller.");
             }else{
@@ -225,6 +228,22 @@ class RouterManager{
         return $layers;
     }
 
+    private static function LoadLibraries($instance){
+        
+        $libraries = dir("../application/libraries");
+
+        while(false !== ($lib = $libraries->read())){
+           if($lib == "." || $lib == ".."){
+               continue;
+           }else{
+              $className = explode(".",$lib)[0];
+              $RefClass = new \ReflectionClass("App\\libraries\\".$className);
+              $instance->$className = $RefClass->newInstance();
+           }
+        }
+
+        return $instance;
+    }
     
  
 }

@@ -6,6 +6,6 @@ return [
         "controller"=>"IndexController",
         "action" =>"index",
         "request_type"=>"GET",
-        "middlewares"=>[]
+        "middlewares"=>["Login"]
     )
 ];
