@@ -1,6 +1,14 @@
 # Framework-php
 O projeto pode ser utilizado como base para uma noção de como deve ser estruturado um framework em php, mas sempre deve-se levar em consideração utilizar Frameworks de ampla utilização como Laravel, Synfony entre outros afim de de maior agilidade no processo mas se necessario o desenvolvimento de estrutura personalizada, este projeto pode ser utilizado ou servir como base de inspiração.
 
+#### Considerações
+
+- Esté é um projeto de didatico usado para ensinar php e os principios de construção de um Framework não deve ser ser usado em projetos do jeito que está.
+- Este projeto devido a sua natureza não é compativel com as especificações PSR-7 e PSR-17
+- O projeto utiliza PSR-4 Para efetuar o autoload das classes
+- Há apenas o design pattern Singleton aplicado não há outros afim de facilitar o entendimento da linguagem ao natural o codigo precisa ser refatorado para
+atender diversos fundamentos Clean Code, Solid, aumentar a orientação a objeto.
+
 ***
 
 #### Estrutura Projeto
